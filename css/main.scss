@@ -8,7 +8,7 @@ $base-font-size:   14px;
 $small-font-size:  12px;
 $base-line-height: 1.5;
 
-$code-font-family:   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$code-font-family:   "Fira Code", monospace;
 $code-font-size:     14px;
 
 // Width of the content area
@@ -27,9 +27,9 @@ $color-text: #333333; // Dark Gray
 $color-link: #0062cc;
 $color-link-hover: #004ba0;
 
-$header-bg: #003366
-$header-bg-hover: darken($color-secondary, 10%);
-$header-link: #ffffff;;
+$header-bg: #003366;
+$header-bg-hover: #003366;
+$header-link: #ffffff;
 $header-fg: #00B7C3;
 
 @mixin media-query($device) {
