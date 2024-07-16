@@ -28,7 +28,7 @@ $color-link: #0062cc;
 $color-link-hover: #004ba0;
 
 $header-bg: #003366;
-$header-bg-hover: #003366;
+$header-bg-hover: darken(#003366, 10%); // Darkened for hover state
 $header-link: #ffffff;
 $header-fg: #00B7C3;
 
