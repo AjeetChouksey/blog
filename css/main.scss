@@ -27,10 +27,10 @@ $color-text: #333333; // Dark Gray
 $color-link: #0062cc;
 $color-link-hover: #004ba0;
 
-$header-bg: $color-secondary;
+$header-bg: #003366
 $header-bg-hover: darken($color-secondary, 10%);
 $header-link: #ffffff;;
-$header-fg: $color-accent
+$header-fg: #00B7C3;
 
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
