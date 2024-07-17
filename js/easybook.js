@@ -7,7 +7,7 @@
  * This is just a extension for my theme.
  */
 
-function TOCize(toc, content, matchHeightTo) {
+/* function TOCize(toc, content, matchHeightTo) {
     if (!(toc && content && matchHeightTo)) return false
     
     var cnt = 0;
@@ -135,9 +135,59 @@ function TOCize(toc, content, matchHeightTo) {
     };
     window.addEventListener('scroll', s1, false);
     window.addEventListener('resize', s1, false);
-}
+} */
 
-function SelectAllize(selector,tips) {
+    function TOCize(toc, content, matchHeightTo) {
+        if (!(toc && content && matchHeightTo)) return false;
+    
+        let cnt = 0;
+        const make = tag => document.createElement(tag);
+    
+        const smoothScroll = (target) => {
+            window.scrollTo({
+                'behavior': 'smooth',
+                'top': target.offsetTop
+            });
+        };
+    
+        const highlightActiveSection = () => {
+            const sections = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
+            let currentSection = "";
+    
+            sections.forEach(section => {
+                const item = document.querySelector(`a[href="#${section.id}"]`);
+                if (window.scrollY >= section.offsetTop - 20) {
+                    currentSection = section.id;
+                    toc.querySelectorAll("a").forEach(a => a.classList.remove("active"));
+                    if (item) item.classList.add("active");
+                }
+            });
+    
+            return currentSection;
+        };
+    
+        window.addEventListener('scroll', highlightActiveSection);
+    
+        // Assuming the rest of the function builds the TOC and binds click events for smooth scrolling
+        toc.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute("href").substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    smoothScroll(target);
+                } else {
+                    console.error("Target section not found: ", targetId);
+                }
+            });
+        });
+    
+        // Your existing code to build the TOC goes here
+    
+        return true; // Indicate successful initialization
+    }
+    
+    function SelectAllize(selector,tips) {
     if (!window.getSelection) return null;
     
     var obj = document.querySelectorAll(selector);
