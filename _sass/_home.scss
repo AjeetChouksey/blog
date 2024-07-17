@@ -1,64 +1,88 @@
+:root {
+  --font-size-base: 1rem; // 16px
+  --font-size-small: 0.875rem; // 14px
+  --color-primary: #F2890A;
+  --color-secondary: #666;
+  --color-background: #fff;
+  --color-text: #333;
+  --color-border: #ccc;
+  --color-link-hover: #0056b3;
+  --breakpoint-mobile: 480px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #121212;
+    --color-text: #e0e0e0;
+    --color-border: #444;
+  }
+}
+
 .home {
   .page-heading {
-    font-size: var(--font-size-large);
-    margin: 1.25rem;
-    @include media-query($on-palm) {
-      margin: 0.625rem;
+    font-size: calc(var(--font-size-base) + 1.5vw);
+    margin: 1rem;
+    @media (min-width: var(--breakpoint-mobile)) {
+      margin: 2rem;
+      font-size: 2.5rem;
     }
   }
   .rss-link {
-    float: right;
+    display: inline-block;
     text-decoration: none;
     border: 1px solid var(--color-secondary);
-    color: #fff;
+    color: var(--color-background);
     background: var(--color-primary);
-    padding: 0.0625rem 0.5rem;
+    padding: 0.5rem;
     transition: background-color 0.3s, color 0.3s;
     
     &:hover, &:focus {
       background-color: darken(var(--color-primary), 10%);
-      color: var(--color-text);
+      color: var(--color-secondary);
     }
   }
   .post-list {
-    padding: 1.25rem 2.5rem;
+    padding: 1rem;
+    list-style: none;
+    @media (min-width: var(--breakpoint-mobile)) {
+      padding: 2rem;
+    }
     > li {
+      margin-bottom: 2rem;
       border-bottom: 1px solid var(--color-border);
-      margin-bottom: 1.875rem;
     }
     .post-link, .post-title {
-      font-size: var(--font-size-large);
-      font-family: 'Candara', 'Kreon', serif;
+      font-size: calc(var(--font-size-base) + 1vw);
     }
     .post-meta {
+      font-size: var(--font-size-small);
       color: var(--color-secondary);
-      margin: 0 1.25rem;
-      margin-bottom: 0.3125rem;
     }
     .post-excerpt {
-      margin: 0 1.25rem;
+      font-size: var(--font-size-base);
       a {
         color: var(--color-link-hover);
         transition: color 0.3s;
-        &:hover {
-          color: darken(var(--color-link-hover), 10%);
-        }
       }
       img {
-        transition: opacity 0.3s ease-in-out;
+        max-width: 100%;
+        height: auto;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+        &:hover {
+          opacity: 1;
+        }
       }
-    }
-    @include media-query($on-palm) {
-      padding: 0.625rem;
     }
   }
   .pagination {
     .previous, .next {
-      border-radius: 1.25rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
       transition: background-color 0.3s, color 0.3s;
     }
     a.previous:hover, a.next:hover {
-      background-color: var(--color-background);
+      background: var(--color-background);
       color: var(--color-primary);
     }
   }
