@@ -1,6 +1,6 @@
 :root {
-  --font-size-base: .1rem; // 16px
-  --font-size-small: 0.500rem; // 14px
+  --font-size-base: 1rem; // 16px
+  --font-size-small: 0.875rem; // 14px
   --color-primary: #F2890A;
   --color-secondary: #666;
   --color-background: #fff;
@@ -52,14 +52,14 @@
       border-bottom: 1px solid var(--color-border);
     }
     .post-link, .post-title {
-      font-size: var(--font-size-base) ;
+      font-size: calc(var(--font-size-base) + 1vw);
     }
     .post-meta {
       font-size: var(--font-size-small);
       color: var(--color-secondary);
     }
     .post-excerpt {
-      font-size: var(--font-size-base);
+        font-size: var(--font-size-small);
       a {
         color: var(--color-link-hover);
         transition: color 0.3s;
