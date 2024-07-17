@@ -37,7 +37,7 @@
     transition: background-color 0.3s, color 0.3s;
     
     &:hover, &:focus {
-      background-color: darken(var(--color-primary), 10%);
+      background-color: darken(#F2890A, 10%);
       color: var(--color-secondary);
     }
   }
