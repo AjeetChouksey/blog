@@ -50,11 +50,11 @@ root {
             color: var(--heading-color);
             margin-bottom: 1rem;
             margin-top: 2rem;
-            font-weight: 200;
+            font-weight: 600;
         }
         
-        h1, h2 {
-            font-size: calc(.875rem + 1.5vw); // Fluid typography for larger headings
+        h1{
+            font-size: calc(.500rem + 1.5vw); // Fluid typography for larger headings
         }
         
         h1, h2, h3 {
